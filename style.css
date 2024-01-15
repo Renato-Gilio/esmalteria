@@ -1,0 +1,474 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+	--text-color-dark: #ffffff;
+	--text-color: #000;
+
+	--dark-fill: #313130;
+	--blue: #52bec8;
+}
+
+html, body {
+	height: 100%;
+}
+
+body * {
+	font-family: 'Inter', sans-serif;
+	color: var(--text-color);
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+nav.nav-menu {
+	width: 100%;
+	height: 75px;
+
+	display: flex;
+	justify-content: center;
+
+	background-color: var(--blue);
+
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, 
+		rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+	position: fixed;
+	z-index: 999;
+}
+
+.menu-container {
+	width: 1200px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	padding: 16px;
+}
+
+.nav-brand {
+	width: 70px;
+	height: 70px;
+
+	background: url("./assets/logo.png") no-repeat center;
+	background-size: contain;
+
+	border-radius: 8px;
+}
+
+#menu-desk {
+	display: flex;
+	align-items: center;
+
+	height: 50px;
+}
+
+#menu-desk a {
+	color: var(--text-color-dark);
+	text-decoration: none;
+}
+
+#menu-mobile {
+	display: none;
+
+	width: 41px;
+	height: 41px;
+}
+
+@media screen and (max-width: 750px) {
+	#menu-desk {
+		display: none;
+	}
+
+	#menu-mobile {
+		display: block;
+	}
+
+	#menu-mobile input:hover {
+		cursor: pointer;
+	}
+
+	.menu-item {
+		display: block;
+		margin: 2rem 4rem;
+		font-size: 1.8rem;
+		color: white;
+		text-decoration: none;
+	}
+	
+	.menu-item:hover {
+		text-decoration: none;
+	}
+	
+	.hamburguer {
+		position: fixed;
+		z-index: 100;
+		top: 1rem;
+		right: 1rem;
+		padding: 4px;
+		border: none;
+		background: white;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+	
+	.closeIcon {
+		display: none;
+	}
+	
+	.menu {
+		position: fixed;
+		transform: translateY(-100%);
+		transition: transform 0.2s;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 99;
+		background: black;
+		color: white;
+		list-style: none;
+		padding-top: 4rem;
+	}
+	
+	.show-menu {
+		transform: translateY(0);
+	}
+}
+
+/* Defaults Customization */
+
+.container {
+	position: relative;
+
+	max-width: 1200px;
+
+	padding: 15px;
+	margin: 0 auto;
+}
+
+/* Carousel */
+
+.gallery-wrapper {
+	overflow-x: auto;
+}
+
+.gallery {
+	display: flex;
+	flex-flow: row nowrap;
+	gap: 15px;
+
+	z-index: 1;
+
+	margin-top: 75px;
+	padding: 10px;
+}
+
+.arrow-left,
+.arrow-right {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: auto;
+	bottom: 0;
+	font-size: 20px;
+	line-height: 250px;
+	width: 40px;
+	text-align: center;
+	color: var(--text-color);
+	cursor: pointer;
+	border: none;
+	opacity: 0.1;
+	transition: all 600ms ease-in-out;
+}
+
+.arrow-right {
+	left: auto;
+	right: 0;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+	opacity: 1;
+	background-color: white;
+	z-index: 50;
+}
+
+.item {
+	max-width: 496px;
+	max-height: 496px;
+	background-size: cover;
+	flex-shrink: 0;
+	opacity: 0.5;
+	border: 2px solid transparent;
+	border-radius: 8px;
+	transition: all 600ms ease-in-out;
+}
+
+.current-item {
+	opacity: 1;
+	border: 2px solid var(--text-color-dark);
+	box-shadow: 0 0 10px var(--blue);
+}
+
+.gallery-wrapper::-webkit-scrollbar {
+	display: none;
+}
+
+.gallery-wrapper {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	z-index: 1;
+}
+
+#sobre .content {
+	display: flex;
+
+	align-items: center;
+	justify-content: space-between;
+}
+
+#sobre .content img {
+	width: 150px;
+	height: 150px;
+
+	margin-right: 150px;
+
+	border-radius: 8px;
+}
+
+#sobre p {
+	max-width: 550px;
+}
+
+#sobre h1 {
+	color: var(--blue);
+
+	margin-top: 32px;
+}
+
+#servicos {
+	background: var(--blue);
+
+	color: var(--text-color-dark)
+}
+
+#servicos h2 {
+	color: var(--text-color-dark);
+
+	margin-top: 32px;
+	margin-bottom: 16px;
+}
+
+#servicos .content {
+	display: flex;
+
+	justify-content: space-between;
+}
+
+#servicos .content div {
+	width: 40%;
+}
+
+#servicos .content div + div {
+	display: flex;
+	flex-direction: column;
+
+	align-items: end;
+}
+
+#servicos .content details {
+	width: 100%;
+}
+
+details {
+  border: 1px solid var(--text-color-dark);
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+	color: var(--text-color-dark);
+}
+
+summary:hover {
+	cursor: pointer;
+}
+
+details[open] {
+  padding: 0.5em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid var(--text-color-dark);
+  margin-bottom: 0.5em;
+}
+
+details span {
+	color: var(--text-color-dark);
+}
+
+details + details {
+	margin-top: 16px;
+}
+
+@media screen and (max-width: 750px) {
+	.item {
+		max-width: 250px;
+	}
+
+	#sobre .content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#sobre .content img {
+		margin-top: 16px;
+		margin-right: 0;
+	}
+
+	#servicos .content {
+		display: block;
+	}
+
+	#servicos .content div {
+		width: 100%;
+	}
+	
+	#servicos .content div + div {
+		margin-top: 16px;
+	}
+}
+
+#servicos .container {
+	padding-bottom: 64px;
+}
+
+footer {
+	width: 100%;
+}
+
+footer .container {
+	padding: 64px 16px;
+}
+
+footer .brand img {
+	width: 150px;
+
+	border-radius: 8px;
+	margin-right: 16px;;
+}
+
+footer h3 {
+	color: var(--blue);
+	margin-bottom: 16px;
+}
+
+footer .content {
+	display: flex;
+}
+
+address {
+	width: 100%;
+	display: flex;
+}
+
+.contact-us {
+	width: 100%;
+}
+
+address div {
+	width: 50%;
+}
+
+.phone a {
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+}
+
+.instagram a {
+	display: flex;
+	align-items: center;
+}
+
+addres div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+address div h4 {
+	color: var(--blue);
+	margin-bottom: 16px;
+}
+
+.instagram + .instagram {
+	margin-top: 16px;
+}
+
+.instagram-icon {
+	width: 25px;
+	margin-right: 8px;
+}
+
+.whatsapp-icon {
+	width: 35px;
+}
+
+.instagram a {
+	text-decoration: none;
+}
+
+@media screen and (max-width: 750px) {
+	footer .brand {
+		display: flex;
+		justify-content: center;
+	}
+
+	footer .brand img {
+		margin-right: 0px;
+	}
+
+	footer .content {
+		display: block;
+	}
+
+	address {
+		display: block;
+	}
+
+	address div {
+		width: 100%;
+
+		margin-top: 16px;
+	}
+
+	.phone a {
+		justify-content: center;
+	}
+	
+	.instagram a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	address div {
+		text-align: center;
+	}
+}
+
+a:hover {
+	cursor: pointer;
+}
